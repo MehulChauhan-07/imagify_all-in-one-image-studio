@@ -16,8 +16,12 @@ const AppContextProvider = (props) => {
   // Use VITE_BACKEND_URL with fallback
   // Pull from Vite env (VITE_BACKEND_URL) with a sensible fallback.
   // Use the same variable name (`backendURL`) that the rest of the app expects.
+  // const backendURL =
+  //   import.meta.env.VITE_BACKEND_URL || "http://localhost:3000" ;
+
   const backendURL =
-    import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+    import.meta.env.VITE_BACKEND_URL ||
+    `${window.location.protocol}//${window.location.hostname}:3000`;
   console.log("Using backendURL:", backendURL);
 
   const loadCreditsData = useCallback(async () => {
@@ -112,7 +116,16 @@ const AppContextProvider = (props) => {
         return null;
       }
     },
-    [backendURL, token, loadCreditsData, navigate, setShowLogin, setToken, setUser, setCredit]
+    [
+      backendURL,
+      token,
+      loadCreditsData,
+      navigate,
+      setShowLogin,
+      setToken,
+      setUser,
+      setCredit,
+    ]
   );
 
   const logout = () => {

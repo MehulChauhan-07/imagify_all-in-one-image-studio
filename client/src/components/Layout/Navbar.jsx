@@ -10,11 +10,19 @@ const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "Generate", path: "/result" },
-    { label: "Plans", path: "/buy" },
-  ];
+  const onClickHandler = () => {
+    if (user) {
+      navigate("/result");
+    } else {
+      setShowLogin(true);
+    }
+  };
+
+  // const navLinks = [
+  //   { label: "Home", path: "/" },
+  //   { label: "Generate", path: "/result" },
+  //   { label: "Plans", path: "/buy" },
+  // ];
 
   const creditLabel = useMemo(() => {
     if (typeof credit === "number") {
@@ -33,7 +41,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-4 z-20 mb-6">
       <div className="flex items-center justify-between rounded-[28px] border border-white/60 bg-white/90 px-4 py-3 shadow-xl shadow-slate-900/5 backdrop-blur-2xl ring-1 ring-slate-100/80">
-        <div className="flex items-center gap-3"> 
+        <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2">
             <img
               src={assets.logo}
@@ -46,11 +54,11 @@ const Navbar = () => {
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-500">
+        {/* <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-500">
           {navLinks.map((link) => (
             <button
               key={link.path}
-              onClick={() => handleNav(link.path)}
+              onClick={() => onClickHandler(link.path)}
               className={`rounded-full px-4 py-2 transition ${
                 isActive(link.path)
                   ? "bg-slate-900 text-white shadow-sm"
@@ -61,13 +69,13 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-        </nav>
+        </nav> */}
 
         <div className="flex items-center gap-3">
           {user ? (
             <>
               <button
-                onClick={() => handleNav("/result")}
+                onClick={onClickHandler}
                 className="hidden sm:flex rounded-full border border-transparent bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:shadow-xl"
               >
                 Generate
@@ -76,11 +84,7 @@ const Navbar = () => {
                 onClick={() => handleNav("/buy")}
                 className="hidden sm:flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-blue-200 hover:text-blue-600"
               >
-                <img
-                  src={assets.credit_star}
-                  alt="credits"
-                  className="w-4"
-                />
+                <img src={assets.credit_star} alt="credits" className="w-4" />
                 {creditLabel}
               </button>
               <div className="relative group">
@@ -118,7 +122,7 @@ const Navbar = () => {
                 Pricing
               </button>
               <button
-                onClick={() => handleNav("/result")}
+                onClick={onClickHandler}
                 className="hidden sm:inline-flex rounded-full border border-transparent bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:shadow-xl"
               >
                 Generate
@@ -150,9 +154,7 @@ const Navbar = () => {
                 key={link.path}
                 onClick={() => handleNav(link.path)}
                 className={`text-left font-medium transition ${
-                  isActive(link.path)
-                    ? "text-blue-600"
-                    : "hover:text-blue-600"
+                  isActive(link.path) ? "text-blue-600" : "hover:text-blue-600"
                 }`}
               >
                 {link.label}

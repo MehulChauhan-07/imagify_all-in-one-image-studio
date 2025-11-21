@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDB from './config/mongoDB.js';
 import userRouter from './routes/userRoutes.js';
 import imageRouter from './routes/imageRoutes.js';
+import helmet from 'helmet';
 
 const PORT = process.env.PORT || 3000
 
@@ -13,8 +14,30 @@ const initServer = async () => {
     
     const app = express();
 
-    // Configure CORS
-    app.use(cors());
+    
+// Security middleware
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests without origin (e.g., mobile apps, curl)
+    if (!origin) return callback(null, true);
+
+    // Allow anything on port 5173
+    if (/^http?:\/\/.*:5173$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    // Block other origins
+    callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true, // allow cookies, tokens
+};
+
+app.use(cors(corsOptions));
+
 
     // Parse JSON bodies (as sent by API clients)
     app.use(express.json());

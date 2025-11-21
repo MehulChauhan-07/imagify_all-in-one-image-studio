@@ -3,6 +3,8 @@ import FormData from "form-data"
 import axios from "axios"
 import fs from "fs";
 import path from "path";
+import cloudinary from "../config/cloudinary.js"; // ADD at top
+
 
 export const generateImage = async (req, res) => {
     try {
@@ -40,6 +42,16 @@ export const generateImage = async (req, res) => {
         const base64Image = Buffer.from(clipDropResponse.data, 'binary').toString('base64');
         const resultImage = `data:image/png;base64,${base64Image}`;
 
+        // Upload to Cloudinary
+        const uploadedImage = await cloudinary.uploader.upload(resultImage, {
+            folder: "imagify_generated",  // you can rename folder
+            resource_type: "image"
+        });
+
+        user.generatedImages.push(uploadedImage.secure_url);
+        await user.save();
+
+
         const updatedBalance = Math.max(0, user.creditBalance - 1);
         await userModel.findByIdAndUpdate(userId, { creditBalance: updatedBalance });
 
@@ -47,7 +59,8 @@ export const generateImage = async (req, res) => {
             success: true,
             message: "Image Generated",
             creditBalance: updatedBalance,
-            resultImage
+            resultImage,
+            cloudinaryUrl: uploadedImage.secure_url
         });
 
     } catch (error) {
@@ -204,6 +217,15 @@ const removeBgImage = async (req, res) => {
         const base64Image = Buffer.from(data, "binary").toString("base64");
         const resultImage = `data:${req.file.mimetype};base64,${base64Image}`;
 
+        const uploadedImage = await cloudinary.uploader.upload(resultImage, {
+            folder: "imagify_remove_bg",
+            resource_type: "image"
+        });
+
+        user.generatedImages.push(uploadedImage.secure_url);
+        await user.save();
+
+
         // update user's credit balance
         await userModel.findByIdAndUpdate(userId, { $inc: { creditBalance: -1 } });
 
@@ -214,6 +236,7 @@ const removeBgImage = async (req, res) => {
         res.status(200).json({
             success: true,
             resultImage,
+            cloudinaryUrl: uploadedImage.secure_url,
             creditBalance: updatedUser.creditBalance, // return updated credit balance
             message: "Background removed successfully",
         });
@@ -410,6 +433,15 @@ const uncropImage = async (req, res) => {
         // Clipdrop returns JPEG for uncrop
         const resultImage = `data:image/jpeg;base64,${base64Image}`;
 
+        const uploadedImage = await cloudinary.uploader.upload(resultImage, {
+            folder: "imagify_uncrop",
+            resource_type: "image"
+        });
+
+        user.generatedImages.push(uploadedImage.secure_url);
+        await user.save();
+
+
         // update user's credit balance
         await userModel.findByIdAndUpdate(userId, { $inc: { creditBalance: -1 } });
 
@@ -420,6 +452,7 @@ const uncropImage = async (req, res) => {
         res.status(200).json({
             success: true,
             resultImage,
+            cloudinaryUrl: uploadedImage.secure_url,
             creditBalance: updatedUser.creditBalance,
             message: "Image uncropped successfully",
             clipdropCredits: {

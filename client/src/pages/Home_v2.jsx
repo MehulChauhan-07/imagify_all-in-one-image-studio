@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import HeroSection from "../components/home/HeroSection";
-import Steps from "../components/home/Steps";
-import Description from "../components/home/Description";
-import GeneratiomBtn from "../components/home/GeneratiomBtn";
+// import HeroSection from "../components/home/HeroSection";
+// import Steps from "../components/home/Steps";
+// import Description from "../components/home/Description";
+// import GeneratiomBtn from "../components/home/GeneratiomBtn";
+import HeroSection from "../components/home/HeroSection_v2";
+import Steps from "../components/home/Steps_v2";
+import Description from "../components/home/Description_v2";
+import GeneratiomBtn from "../components/home/GeneratiomBtn_v2";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {

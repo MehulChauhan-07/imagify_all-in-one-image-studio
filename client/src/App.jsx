@@ -1,10 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 // import Home from "./pages/Home";
-import Home from "./pages/Home-v1";
-import Result from "./pages/Result";
-import BuyCredit from "./pages/BuyCredit";
-import Navbar from "./components/Layout/Navbar";
+// import Home from "./pages/Home-v1";
+import Home from "./pages/Home_v2"
+// import Result from "./pages/Result";
+import Result from "./pages/Result_v2";
+// import BuyCredit from "./pages/BuyCredit";
+import BuyCredit from "./pages/BuyCredit_v2";
+// import Navbar from "./components/Layout/Navbar";
+// import Footer from "./components/Layout/Footer";
+import Footer from "./components/Layout/Footer_v2";
+import Navbar from "./components/Layout/Navbar_v2";
+
 import Login from "./components/auth/Login";
 import { AppContext } from "./context/AppContext";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,8 +28,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
         <Route path="/buy" element={<BuyCredit />} />
-        {/* <Route path="/result" element={<Result />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 };

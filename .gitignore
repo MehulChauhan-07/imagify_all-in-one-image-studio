@@ -2572,3 +2572,13 @@ server/node_modules/.pnpm/wrappy@1.0.2/node_modules/wrappy/package.json
 server/node_modules/.pnpm/wrappy@1.0.2/node_modules/wrappy/README.md
 server/node_modules/.pnpm/wrappy@1.0.2/node_modules/wrappy/wrappy.js
 server/.env
+server/node_modules/helmet
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/CHANGELOG.md
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/index.cjs
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/index.d.cts
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/index.d.mts
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/index.mjs
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/LICENSE
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/package.json
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/README.md
+server/node_modules/.pnpm/helmet@8.1.0/node_modules/helmet/SECURITY.md

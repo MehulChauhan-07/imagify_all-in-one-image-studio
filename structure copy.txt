@@ -1,0 +1,147 @@
+Imagify - all in one image tools [SSH: 192.168.103.176]/
+├── .gitignore
+├── client/
+│   ├── .env
+│   ├── .gitignore
+│   ├── README.md
+│   ├── components.json
+│   ├── dist/
+│   │   ├── assets/
+│   │   │   ├── index-D3UJ0KzY.js
+│   │   │   ├── index-e2P9PR_w.css
+│   │   │   ├── logo-CuHbV-6e.svg
+│   │   │   ├── profile_img_1-DmbBkLug.png
+│   │   │   ├── profile_img_2-B2Kf1n_6.png
+│   │   │   ├── sample_img_1-BR7ge2qc.png
+│   │   │   ├── sample_img_2-CupJWure.png
+│   │   │   ├── star_group-DF3vjgE0.png
+│   │   ├── bg_layer.png
+│   │   ├── favicon.svg
+│   │   ├── index.html
+│   │   ├── slide_icon.svg
+│   │   ├── vite.svg
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── postcss.config.mjs
+│   ├── public/
+│   │   ├── bg_layer.png
+│   │   ├── favicon.svg
+│   │   ├── slide_icon.svg
+│   │   ├── vite.svg
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets/
+│   │   │   ├── assets.js
+│   │   │   ├── credit_star.svg
+│   │   │   ├── cross_icon.svg
+│   │   │   ├── download_icon.svg
+│   │   │   ├── email_icon.svg
+│   │   │   ├── facebook_icon.svg
+│   │   │   ├── favicon.svg
+│   │   │   ├── instagram_icon.svg
+│   │   │   ├── lock_icon.svg
+│   │   │   ├── logo.svg
+│   │   │   ├── logo_icon.svg
+│   │   │   ├── profile_icon.png
+│   │   │   ├── profile_img_1.png
+│   │   │   ├── profile_img_2.png
+│   │   │   ├── rating_star.svg
+│   │   │   ├── sample_img_1.png
+│   │   │   ├── sample_img_2.png
+│   │   │   ├── star_group.png
+│   │   │   ├── star_icon.svg
+│   │   │   ├── step_icon_1.svg
+│   │   │   ├── step_icon_2.svg
+│   │   │   ├── step_icon_3.svg
+│   │   │   ├── twitter_icon.svg
+│   │   ├── components/
+│   │   │   ├── Layout/
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   ├── Navbar.jsx
+│   │   │   ├── ModeToggle.tsx
+│   │   │   ├── Pricing.jsx
+│   │   │   ├── ThemeProvider.tsx
+│   │   │   ├── ThemeToggle.jsx
+│   │   │   ├── auth/
+│   │   │   │   ├── Login.jsx
+│   │   │   ├── home/
+│   │   │   │   ├── Description.jsx
+│   │   │   │   ├── GeneratiomBtn.jsx
+│   │   │   │   ├── HeroSection.jsx
+│   │   │   │   ├── Steps.jsx
+│   │   │   ├── ui/
+│   │   │   │   ├── accordion.tsx
+│   │   │   │   ├── alert-dialog.tsx
+│   │   │   │   ├── alert.tsx
+│   │   │   │   ├── avatar.tsx
+│   │   │   │   ├── badge.tsx
+│   │   │   │   ├── button.tsx
+│   │   │   │   ├── calendar.tsx
+│   │   │   │   ├── card.tsx
+│   │   │   │   ├── checkbox.tsx
+│   │   │   │   ├── dialog.tsx
+│   │   │   │   ├── dropdown-menu.tsx
+│   │   │   │   ├── editor.tsx
+│   │   │   │   ├── hover-card.tsx
+│   │   │   │   ├── icons.tsx
+│   │   │   │   ├── input.tsx
+│   │   │   │   ├── label.tsx
+│   │   │   │   ├── modal.tsx
+│   │   │   │   ├── navigation-menu.tsx
+│   │   │   │   ├── popover.tsx
+│   │   │   │   ├── progress.tsx
+│   │   │   │   ├── scroll-area.tsx
+│   │   │   │   ├── select.tsx
+│   │   │   │   ├── separator.tsx
+│   │   │   │   ├── sheet.tsx
+│   │   │   │   ├── skeleton.tsx
+│   │   │   │   ├── slider.tsx
+│   │   │   │   ├── switch.tsx
+│   │   │   │   ├── tabs.tsx
+│   │   │   │   ├── textarea.tsx
+│   │   │   │   ├── toast.tsx
+│   │   │   │   ├── toaster.tsx
+│   │   │   │   ├── tooltip.tsx
+│   │   ├── context/
+│   │   │   ├── AppContext.jsx
+│   │   ├── index.css
+│   │   ├── lib/
+│   │   │   ├── utils.ts
+│   │   ├── main.jsx
+│   │   ├── pages/
+│   │   │   ├── BuyCredit.jsx
+│   │   │   ├── CustomPlanPage.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Result.jsx
+│   ├── styles/
+│   │   ├── byteforge-logo.css
+│   │   ├── globals.css
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+├── imagify - text to image.zip
+├── imagify client.zip
+├── imagify- server.zip
+├── imge.zip
+├── server/
+│   ├── .env
+│   ├── config/
+│   │   ├── mongoDB.js
+│   ├── controller/
+│   │   ├── imageController.js
+│   │   ├── userController.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   ├── models/
+│   │   ├── transactionModel.js
+│   │   ├── userModel.js
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── routes/
+│   │   ├── imageRoutes.js
+│   │   ├── userRoutes.js
+│   ├── server.js
+│   ├── uset_test.json
